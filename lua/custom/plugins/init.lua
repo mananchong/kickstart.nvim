@@ -65,4 +65,15 @@ return {
     version = '*', -- Pin Neorg to the latest stable release
     config = true,
   },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        sync_install = true,
+        ensure_installed = { 'markdown', 'markdown_inline', 'r', 'rnoweb', 'yaml', 'csv' },
+        highlight = { enable = true },
+      }
+    end,
+  },
 }
